@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: Minimall/datrics-manifesto
+  repo: your-username/your-repo-name
   branch: main
-  base_url: https://datrics-cms.netlify.app
+  base_url: https://your-domain.replit.dev
   auth_endpoint: /.netlify/functions/auth
 
 # Enable editorial workflow (optional)
