@@ -6,6 +6,16 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Functions configuration
+[functions]
+  directory = "netlify/functions"
+
+# API redirects for Decap CMS authentication
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
 # Redirect /kitchen/* to admin interface
 [[redirects]]
   from = "/kitchen/*"
