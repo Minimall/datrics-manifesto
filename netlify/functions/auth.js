@@ -1,11 +1,20 @@
 exports.handler = async (event, context) => {
-  const { code, state } = event.queryStringParameters;
+  const { code, provider } = event.queryStringParameters;
 
+  // If no code, redirect to Auth0 for authentication
   if (!code) {
+    const authUrl = `https://${process.env.AUTH0_DOMAIN}/authorize?` +
+      `response_type=code&` +
+      `client_id=${process.env.AUTH0_CLIENT_ID}&` +
+      `redirect_uri=${encodeURIComponent(`${process.env.URL}/.netlify/functions/auth`)}&` +
+      `scope=openid profile email&` +
+      `connection=github`;
+
     return {
-      statusCode: 400,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Authorization code not provided' }),
+      statusCode: 302,
+      headers: {
+        Location: authUrl,
+      },
     };
   }
 
@@ -44,15 +53,21 @@ exports.handler = async (event, context) => {
       throw new Error('Failed to get user info');
     }
 
-    // Return the token for Decap CMS
+    // Return success page with token for Decap CMS
+    const successPage = `
+      <script>
+        window.opener.postMessage({
+          token: "${tokenData.access_token}",
+          provider: "auth0"
+        }, window.location.origin);
+        window.close();
+      </script>
+    `;
+
     return {
       statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        token: tokenData.access_token,
-        provider: 'auth0',
-        user: userData,
-      }),
+      headers: { 'Content-Type': 'text/html' },
+      body: successPage,
     };
   } catch (error) {
     console.error('Auth0 authentication error:', error);
