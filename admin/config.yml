@@ -2,8 +2,8 @@ backend:
   name: github
   repo: Minimall/datrics-manifesto
   branch: main
-  auth_type: implicit
-  app_id: Ov23lidjFzr80VTu0n4z
+  base_url: https://datrics-cms.netlify.app
+  auth_endpoint: /.netlify/functions/auth
 
 # Enable editorial workflow (optional)
 publish_mode: editorial_workflow
