@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Minimall/datrics-manifesto
   branch: main
+  base_url: "/api"
+  auth_endpoint: "auth"
 
 # Enable editorial workflow (optional)
 publish_mode: editorial_workflow
@@ -59,11 +62,3 @@ collections:
 # Editor configuration
 editor:
   preview: true
-  
-#backend
-backend:
-name: github
-repo: Minimall/datrics-manifesto
-branch: main
-base_url: "/api"
-auth_endpoint: "auth"
