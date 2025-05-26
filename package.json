@@ -15,5 +15,5 @@
     "markdown-it-container": "^4.0.0",
     "netlify-cms-oauth-provider-node": "^2.0.0"
   },
-  "description": ""
+  "description": "A modern static website built with Eleventy and managed through Decap CMS, designed for deployment on Netlify."
 }
