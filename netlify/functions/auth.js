@@ -40,7 +40,7 @@ exports.handler = async (event, context) => {
       throw new Error(`Token exchange failed: ${tokenData.error_description || tokenData.error}`);
     }
 
-    // Get user info from Auth0
+    // Get user info and GitHub token from Auth0
     const userResponse = await fetch(`https://${process.env.AUTH0_DOMAIN}/userinfo`, {
       headers: {
         Authorization: `Bearer ${tokenData.access_token}`,
@@ -53,12 +53,22 @@ exports.handler = async (event, context) => {
       throw new Error('Failed to get user info');
     }
 
-    // Return success page with token for Decap CMS
+    // Get GitHub access token from Auth0
+    const githubTokenResponse = await fetch(`https://${process.env.AUTH0_DOMAIN}/api/v2/users/${userData.sub}`, {
+      headers: {
+        Authorization: `Bearer ${tokenData.access_token}`,
+      },
+    });
+
+    const githubData = await githubTokenResponse.json();
+    const githubToken = githubData.identities?.[0]?.access_token;
+
+    // Return success page with GitHub token for Decap CMS
     const successPage = `
       <script>
         window.opener.postMessage({
-          token: "${tokenData.access_token}",
-          provider: "auth0"
+          token: "${githubToken || tokenData.access_token}",
+          provider: "github"
         }, window.location.origin);
         window.close();
       </script>
