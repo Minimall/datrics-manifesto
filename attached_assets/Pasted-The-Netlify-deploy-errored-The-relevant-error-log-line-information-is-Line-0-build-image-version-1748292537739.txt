@@ -1,0 +1,107 @@
+The Netlify deploy errored. The relevant error log line information is:
+
+Line 0: build-image version: 4ec50c0cf4c115815bb3546389ae2d9d46c94317 (noble)
+Line 1: buildbot version: cd1a41e5abe93e9dde72e1185c95f7c91e0c77f2
+Line 2: Fetching cached dependencies
+Line 3: Failed to fetch cache, continuing with build
+Line 4: Starting to prepare the repo for build
+Line 5: No cached dependencies found. Cloning fresh repo
+Line 6: git clone --filter=blob:none https://github.com/Minimall/datrics-manifesto
+Line 7: Preparing Git Reference refs/heads/main
+Line 8: Starting to install dependencies
+Line 9: Python version set to 3.13.3
+Line 10: Ruby version set to 3.4.3
+Line 11: Go version set to 1.24.3
+Line 12: Using PHP version 8.3
+Line 13: Downloading and installing node v18.20.8...
+Line 24: Started restoring cached node modules
+Line 25: Finished restoring cached node modules
+Line 26: Installing npm packages using npm version 10.8.2
+Line 27: added 136 packages in 1s
+Line 28: npm packages installed
+Line 29: Successfully installed dependencies
+Line 30: Starting build script
+Line 31: Detected 1 framework(s)
+Line 32: "eleventy" at version "3.1.0"
+Line 33: Section completed: initializing
+Line 34: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 35: [96m[1m​[22m[39m
+Line 36: [96m[1mNetlify Build                                                 [22m[39m
+Line 37: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 38: [36m[1m​[22m[39m
+Line 39: [36m[1m❯ Version[22m[39m
+Line 40:   @netlify/build 33.2.0
+Line 41: [36m[1m​[22m[39m
+Line 42: [36m[1m❯ Flags[22m[39m
+Line 43:   accountId: 68349a455b8aa3008709138f
+Line 44:   baseRelDir: true
+Line 51: [36m[1m❯ Config file[22m[39m
+Line 52:   /opt/build/repo/netlify.toml
+Line 53: [36m[1m​[22m[39m
+Line 54: [36m[1m❯ Context[22m[39m
+Line 55:   production
+Line 56: [96m[1m​[22m[39m
+Line 57: [96m[1mbuild.command from netlify.toml                               [22m[39m
+Line 58: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 59: ​
+Line 60: [36m$ npm run build[39m
+Line 61: npm error Missing script: "build"
+Line 62: npm error
+Line 63: npm error To see a list of scripts, run:
+Line 64: npm error   npm run
+Line 65: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2025-05-26T20_34_47_215Z-debug-0.log
+Line 66: [91m[1m​[22m[39m
+Line 67: [91m[1m"build.command" failed                                        [22m[39m
+Line 68: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 69: ​
+Line 70:   [31m[1mError message[22m[39m
+Line 71:   Command failed with exit code 1: npm run build
+Line 72: ​
+Line 73:   [31m[1mError location[22m[39m
+Line 74:   In build.command from netlify.toml:
+Line 75:   npm run build
+Line 76: ​
+Line 77:   [31m[1mResolved config[22m[39m
+Line 78:   build:
+Line 79:     command: npm run build
+Line 80:     commandOrigin: config
+Line 81:     environment:
+Line 82:       - NODE_VERSION
+Line 83:     publish: /opt/build/repo/_site
+Line 84:     publishOrigin: config
+Line 85:   headers:
+Line 86:     - for: /kitchen/*
+      values:
+        X-Robots-Tag: noindex, nofollow
+    - for: /admin/*
+      values:
+        X-Robots-T
+Line 87: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 88: Failing build: Failed to build site
+Line 89: Finished processing build request in 14.381s
+
+Netlify has analyzed the error and provided the following guidance:
+
+### Diagnosis
+The build failure is due to a missing script "build" in the npm configuration.
+
+The relevant error lines are:
+```plaintext
+61: npm error Missing script: "build"
+63: npm error To see a list of scripts, run:
+64: npm error   npm run
+```
+
+### Solution
+1. Update the `package.json` file in the repository to include a script for the build command.
+2. Ensure that the `scripts` section in `package.json` includes a "build" script.
+3. Verify that the "build" script is correctly defined and points to the correct Eleventy build command.
+   
+Make sure the package.json file in the repository has the following (or similar) script defined:
+```json
+"scripts": {
+  "build": "eleventy"
+}
+```
+
+After updating the `package.json` file, push the changes to the repository to trigger a new build with the correct build script configuration.

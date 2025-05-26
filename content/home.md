@@ -3,7 +3,7 @@ title: "Welcome to My Website"
 meta_description: "A modern static site built with Eleventy and managed with Decap CMS"
 ---
 
-# Welcome to Our Website {.manifesto-title}
+# Hello {.manifesto-title}
 
 This is the home page of our website, built with **Eleventy** and managed through **Decap CMS**.
 
