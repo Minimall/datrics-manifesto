@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Website</title>
+    
+    
+    <meta name="description" content="A modern static site built with Eleventy and managed with Decap CMS">
+    
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Welcome to My Website">
+    
+    <meta property="og:description" content="A modern static site built with Eleventy and managed with Decap CMS">
+    
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Welcome to My Website">
+    
+    <meta property="twitter:description" content="A modern static site built with Eleventy and managed with Decap CMS">
+    
+    
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- Theme detection script -->
+    <script>
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const palette = 'light';
+        const themeClass = palette === 'dark' ? 'theme-dark' : (palette === 'light' ? 'theme-light' : (prefersDark ? 'theme-dark' : 'theme-light'));
+        document.documentElement.classList.add(themeClass);
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="/" class="logo">My Website</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts/">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1 class="manifesto-title">Welcome to Our Website</h1>
+<p class="paragraph">This is the home page of our website, built with <strong>Eleventy</strong> and managed through <strong>Decap CMS</strong>.</p>
+<h2>About This Site</h2>
+<p class="paragraph">This site demonstrates:</p>
+<ul>
+<li>Static site generation with Eleventy</li>
+<li>Content management with Decap CMS</li>
+<li>Markdown processing with custom attributes</li>
+<li>Image upload capabilities</li>
+<li>SEO-friendly structure</li>
+</ul>
+<p class="paragraph">:::subparagraph<br>
+This is a custom subparagraph container that showcases the markdown-it-container plugin in action.<br>
+:::</p>
+<p class="paragraph">Feel free to explore our <a href="/posts/">blog posts</a> to see more content examples.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Fast Loading</strong>: Static site generation ensures optimal performance</li>
+<li><strong>Easy Editing</strong>: Content management through a user-friendly interface</li>
+<li><strong>Responsive Design</strong>: Works great on all devices</li>
+<li><strong>SEO Optimized</strong>: Built with search engines in mind</li>
+</ul>
+<p class="paragraph"><em>Visit <code>/kitchen/</code> to manage content (requires authentication).</em></p>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="paragraph">&copy; 2024 My Website. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
+    </footer>
+
+    <!-- Netlify Identity Widget -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

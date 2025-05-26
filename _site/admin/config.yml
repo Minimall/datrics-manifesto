@@ -1,0 +1,61 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Enable editorial workflow (optional)
+publish_mode: editorial_workflow
+
+# Media configuration
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+# Site configuration
+site_url: "/"
+logo_url: "/logo.svg"
+locale: "en"
+
+# Collections
+collections:
+  # Home page management
+  - name: "home"
+    label: "Home Page"
+    files:
+      - file: "content/home.md"
+        label: "Home Page Content"
+        name: "home"
+        fields:
+          - { name: "title", label: "Website Title", widget: "string" }
+          - { name: "meta_description", label: "Meta Description", widget: "string", hint: "Brief description for SEO" }
+          - { name: "body", label: "Content", widget: "markdown" }
+
+  # Blog posts management
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "description", label: "Description", widget: "string", hint: "Short post summary for SEO" }
+      - { name: "date", label: "Date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { 
+          name: "palette", 
+          label: "Theme Palette", 
+          widget: "select", 
+          options: ["light", "dark"],
+          default: "light"
+        }
+      - { 
+          name: "hero_ai", 
+          label: "AI Hero Image", 
+          widget: "hidden", 
+          default: null,
+          hint: "Placeholder for future AI-generated images"
+        }
+      - { name: "body", label: "Content", widget: "markdown" }
+
+# Editor configuration
+editor:
+  preview: true

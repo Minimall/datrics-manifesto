@@ -1,0 +1,334 @@
+/* CSS Custom Properties for theming */
+:root {
+  /* Light theme colors */
+  --background: 210 11% 98%; /* #F5F7FA */
+  --foreground: 210 11% 15%; /* #262B35 */
+  --primary: 217 91% 60%; /* #3B82F6 */
+  --secondary: 210 11% 71%; /* #94A3B8 */
+  --accent: 142 71% 45%; /* #10B981 */
+  --muted: 210 11% 96%; /* #F1F5F9 */
+  --border: 210 11% 87%; /* #CBD5E1 */
+  
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  
+  /* Border radius */
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+/* Dark theme overrides */
+.theme-dark {
+  --background: 210 11% 4%; /* #0F1419 */
+  --foreground: 210 11% 93%; /* #E2E8F0 */
+  --primary: 217 91% 60%; /* #3B82F6 */
+  --secondary: 210 11% 36%; /* #475569 */
+  --accent: 142 71% 45%; /* #10B981 */
+  --muted: 210 11% 7%; /* #1E293B */
+  --border: 210 11% 15%; /* #334155 */
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+.manifesto-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-6);
+  color: hsl(var(--primary));
+}
+
+.paragraph {
+  margin-bottom: var(--space-4);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.875rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+/* Links */
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid hsl(var(--border));
+  padding: var(--space-4) 0;
+  background-color: hsl(var(--background));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: hsl(var(--primary));
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-6);
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4);
+  width: 100%;
+}
+
+/* Custom containers */
+.subparagraph {
+  background-color: hsl(var(--muted));
+  border-left: 4px solid hsl(var(--primary));
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-6) 0;
+  border-radius: var(--radius);
+}
+
+.highlight {
+  background-color: hsl(var(--accent) / 0.1);
+  color: hsl(var(--accent));
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius);
+}
+
+/* Code blocks */
+pre {
+  background-color: hsl(var(--muted));
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  background-color: hsl(var(--muted));
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Post styles */
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ai-hero {
+  min-height: 200px;
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed hsl(var(--border));
+}
+
+.ai-hero-placeholder {
+  text-align: center;
+  color: hsl(var(--secondary));
+  font-style: italic;
+}
+
+.post-header {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.post-title {
+  margin-bottom: var(--space-2);
+}
+
+.post-date {
+  color: hsl(var(--secondary));
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.post-description {
+  font-size: 1.125rem;
+  color: hsl(var(--secondary));
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.post-content {
+  line-height: 1.8;
+}
+
+.post-footer {
+  margin-top: var(--space-12);
+  padding-top: var(--space-8);
+  border-top: 1px solid hsl(var(--border));
+}
+
+.back-to-posts {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background-color: hsl(var(--muted));
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.back-to-posts:hover {
+  background-color: hsl(var(--border));
+  text-decoration: none;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin: var(--space-4) 0;
+}
+
+/* Lists */
+ul, ol {
+  margin: var(--space-4) 0;
+  padding-left: var(--space-6);
+}
+
+li {
+  margin-bottom: var(--space-2);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid hsl(var(--primary));
+  padding-left: var(--space-6);
+  margin: var(--space-6) 0;
+  font-style: italic;
+  color: hsl(var(--secondary));
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-6) 0;
+}
+
+th, td {
+  padding: var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+th {
+  font-weight: 600;
+  background-color: hsl(var(--muted));
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid hsl(var(--border));
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  color: hsl(var(--secondary));
+  background-color: hsl(var(--muted));
+  margin-top: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .manifesto-title {
+    font-size: 2rem;
+  }
+  
+  .main-nav {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .nav-links {
+    gap: var(--space-4);
+  }
+  
+  .main-content {
+    padding: var(--space-6) var(--space-4);
+  }
+  
+  .ai-hero {
+    min-height: 150px;
+  }
+}

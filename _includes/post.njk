@@ -1,0 +1,40 @@
+---
+layout: base.njk
+---
+
+<article class="post">
+    {% if hero_ai %}
+    <div class="ai-hero">
+        <!-- Future AI-generated hero image will be displayed here -->
+        <div class="ai-hero-placeholder">
+            <p>AI Hero Image Placeholder</p>
+        </div>
+    </div>
+    {% else %}
+    <div class="ai-hero">
+        <!-- AI hero section ready for future implementation -->
+    </div>
+    {% endif %}
+    
+    <header class="post-header">
+        <h1 class="post-title">{{ title }}</h1>
+        {% if date %}
+        <time class="post-date" datetime="{{ date | date: 'YYYY-MM-DD' }}">
+            {{ date | dateFormat }}
+        </time>
+        {% endif %}
+        {% if description %}
+        <p class="post-description">{{ description }}</p>
+        {% endif %}
+    </header>
+    
+    <div class="post-content">
+        {{ content | safe }}
+    </div>
+    
+    <footer class="post-footer">
+        <nav class="post-nav">
+            <a href="/posts/" class="back-to-posts">← Back to all posts</a>
+        </nav>
+    </footer>
+</article>

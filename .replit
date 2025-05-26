@@ -1,0 +1,57 @@
+modules = ["nodejs-20"]
+
+[nix]
+channel = "stable-24_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Eleventy Development Server"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "eleventy_site"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Eleventy Dev Server"
+
+[[workflows.workflow]]
+name = "Eleventy Development Server"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm install && npm run dev"
+waitForPort = 5000
+
+[[workflows.workflow]]
+name = "eleventy_site"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm init -y && npm install @11ty/eleventy markdown-it markdown-it-attrs markdown-it-container"
+
+[[workflows.workflow]]
+name = "Eleventy Dev Server"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx eleventy --serve --port=5000"
+waitForPort = 5000
+
+[deployment]
+run = ["sh", "-c", "npm install && npm run dev"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80

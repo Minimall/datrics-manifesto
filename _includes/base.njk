@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }}{% else %}{{ site.title or "My Website" }}{% endif %}</title>
+    
+    {% if meta_description %}
+    <meta name="description" content="{{ meta_description }}">
+    {% elif description %}
+    <meta name="description" content="{{ description }}">
+    {% endif %}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title or "My Website" }}{% endif %}">
+    {% if meta_description or description %}
+    <meta property="og:description" content="{{ meta_description or description }}">
+    {% endif %}
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="{% if title %}{{ title }}{% else %}{{ site.title or "My Website" }}{% endif %}">
+    {% if meta_description or description %}
+    <meta property="twitter:description" content="{{ meta_description or description }}">
+    {% endif %}
+    
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- Theme detection script -->
+    <script>
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const palette = '{{ palette or "light" }}';
+        const themeClass = palette === 'dark' ? 'theme-dark' : (palette === 'light' ? 'theme-light' : (prefersDark ? 'theme-dark' : 'theme-light'));
+        document.documentElement.classList.add(themeClass);
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="/" class="logo">My Website</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts/">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 My Website. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
+    </footer>
+
+    <!-- Netlify Identity Widget -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

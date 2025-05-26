@@ -1,0 +1,30 @@
+[build]
+  publish = "_site"
+  command = "npm run build"
+
+# Enable Netlify Identity for Git Gateway
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirect /kitchen/* to admin interface
+[[redirects]]
+  from = "/kitchen/*"
+  to = "/admin/index.html"
+  status = 200
+
+# Protect admin interface from search engines
+[[headers]]
+  for = "/kitchen/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Enable Git Gateway
+[[headers]]
+  for = "/.netlify/identity"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
