@@ -44,7 +44,7 @@ exports.handler = async (event, context) => {
     try {
       const tokenParams = {
         code,
-        redirect_uri: `${process.env.URL}/.netlify/functions/auth`,
+        redirect_uri: `https://workspace-dmytrodvorniche.replit.dev/.netlify/functions/auth`,
         scope: 'repo,user'
       };
 

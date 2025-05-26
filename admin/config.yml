@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: your-username/your-repo-name
+  repo: Minimall/datrics-manifesto
   branch: main
-  base_url: https://your-domain.replit.dev
+  base_url: https://workspace-dmytrodvorniche.replit.dev
   auth_endpoint: /.netlify/functions/auth
 
 # Enable editorial workflow (optional)
