@@ -59,3 +59,11 @@ collections:
 # Editor configuration
 editor:
   preview: true
+  
+#backend
+backend:
+name: github
+repo: Minimall/datrics-manifesto
+branch: main
+base_url: "/api"
+auth_endpoint: "auth"
