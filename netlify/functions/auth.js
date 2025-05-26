@@ -1,10 +1,12 @@
-// OAuth proxy for Decap CMS → GitHub
-const { createHandler } = require("netlify-cms-oauth-provider-node");
+const { createHandlers } = require("netlify-cms-oauth-provider-node");
 
-exports.handler = createHandler({
-  provider: "github", // REQUIRED
-  clientId: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  // optional:
-  // allowedOrgs: ["your-github-org"]
+const handlers = createHandlers({
+  providers: {
+    github: {
+      client_id: process.env.GITHUB_CLIENT_ID,
+      client_secret: process.env.GITHUB_CLIENT_SECRET,
+    }
+  }
 });
+
+exports.handler = handlers.auth;
