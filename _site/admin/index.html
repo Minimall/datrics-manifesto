@@ -8,23 +8,5 @@
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  
-  <script>
-    // Initialize CMS with Auth0 configuration
-    window.CMS_MANUAL_INIT = true;
-    
-    // Configure the CMS to use Auth0
-    window.CMS.init({
-      config: {
-        backend: {
-          name: 'github',
-          repo: 'Minimall/datrics-manifesto',
-          branch: 'main',
-          base_url: 'https://datrics-cms.netlify.app',
-          auth_endpoint: '/.netlify/functions/auth'
-        }
-      }
-    });
-  </script>
 </body>
 </html>
