@@ -1,0 +1,64 @@
+The Netlify deploy errored. The relevant error log line information is:
+
+Line 54: [36m[1m​[22m[39m
+Line 55: [36m[1m❯ Current directory[22m[39m
+Line 56:   /opt/build/repo
+Line 57: [36m[1m​[22m[39m
+Line 58: [36m[1m❯ Config file[22m[39m
+Line 59:   /opt/build/repo/netlify.toml
+Line 60: [36m[1m​[22m[39m
+Line 61: [36m[1m❯ Context[22m[39m
+Line 62:   production
+Line 63: [91m[1m​[22m[39m
+Line 64: [91m[1mConfiguration error                                           [22m[39m
+Line 65: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 66: ​
+Line 67:   [31m[1mError message[22m[39m
+Line 68:   Plugins must be installed either in the Netlify App or in "package.json".
+Line 69:   Please run "npm install -D @netlify/plugin-auth0" or "yarn add -D @netlify/plugin-auth0".
+Line 70: ​
+Line 71:   [31m[1mResolved config[22m[39m
+Line 72:   build:
+Line 73:     command: npx eleventy
+Line 74:     commandOrigin: config
+Line 75:     environment:
+Line 76:       - AUTH0_CLIENT_ID
+Line 77:       - AUTH0_CLIENT_SECRET
+Line 78:       - AUTH0_DOMAIN
+Line 79:       - GIT_BRANCH
+Line 80:       - GIT_COMMITTER_EMAIL
+Line 81:       - GIT_COMMITTER_NAME
+Line 82:       - GIT_REPO_NAME
+Line 83:       - GIT_REPO_OWNER
+Line 84:       - NODE_VERSION
+Line 85:     publish: /opt/build/repo/_site
+Line 86:     publishOrigin: config
+Line 87:   headers:
+Line 88: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 89:     - for: /kitchen/*
+      values:
+        X-Robots-Tag: noindex, nofollow
+    - for: /admin/*
+      values:
+        X-Robots-T
+Line 90: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 91: Failing build: Failed to build site
+Line 92: Finished processing build request in 15.473s
+
+Netlify has analyzed the error and provided the following guidance:
+
+**Diagnosis:**
+The build failed due to a configuration error related to plugins. The error message specifies that plugins must be installed either in the Netlify App or in "package.json."
+
+**Solution:**
+1. Verify that the `@netlify/plugin-auth0` package is listed in the `package.json` file or was committed to the repository.
+2. If the package is not included, run the following command to add it as a dev dependency:
+   ```bash
+   npm install -D @netlify/plugin-auth0
+   ```
+   or
+   ```bash
+   yarn add -D @netlify/plugin-auth0
+   ```
+
+After adding the necessary plugin to the project dependencies, trigger the build again to ensure that it completes successfully.
