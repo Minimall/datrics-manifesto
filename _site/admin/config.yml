@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://datrics-cms.netlify.app
   auth_endpoint: /.netlify/functions/auth
+  auth_scope: repo
 
 # Enable editorial workflow (optional)
 publish_mode: editorial_workflow

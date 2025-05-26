@@ -2,13 +2,13 @@ const simpleOauthModule = require('simple-oauth2');
 
 const oauth2 = simpleOauthModule.create({
   client: {
-    id: process.env.OAUTH_CLIENT_ID,
-    secret: process.env.OAUTH_CLIENT_SECRET,
+    id: process.env.AUTH0_CLIENT_ID,
+    secret: process.env.AUTH0_CLIENT_SECRET,
   },
   auth: {
-    tokenHost: 'https://github.com',
-    tokenPath: '/login/oauth/access_token',
-    authorizePath: '/login/oauth/authorize',
+    tokenHost: `https://${process.env.AUTH0_DOMAIN}`,
+    tokenPath: '/oauth/token',
+    authorizePath: '/authorize',
   },
 });
 
