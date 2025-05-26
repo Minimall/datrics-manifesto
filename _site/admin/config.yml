@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Minimall/datrics-manifesto
   branch: main
+  base_url: https://datrics-cms.netlify.app
+  auth_endpoint: /.netlify/functions/auth
 
 # Enable editorial workflow (optional)
 publish_mode: editorial_workflow
