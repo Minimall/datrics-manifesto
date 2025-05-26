@@ -2,8 +2,8 @@ backend:
   name: github
   repo: Minimall/datrics-manifesto
   branch: main
-  base_url: "/api"
-  auth_endpoint: "auth"
+  auth_type: "implicit"
+  app_id: "your-auth0-github-app-id"
 
 # Enable editorial workflow (optional)
 publish_mode: editorial_workflow
