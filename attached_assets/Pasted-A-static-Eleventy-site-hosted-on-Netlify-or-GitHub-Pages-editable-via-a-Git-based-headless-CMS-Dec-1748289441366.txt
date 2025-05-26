@@ -1,0 +1,141 @@
+A static Eleventy site hosted on Netlify or GitHub Pages, editable via a Git-based headless CMS (Decap) at /kitchen/. Editors manage home page content and blog posts with markdown + image uploads. The site supports dark/light themes, markdown customization, and SEO metadata.
+
+2. Folder Structure
+
+├── content/
+│   ├── home.md
+│   └── posts/
+│       └── example-post.md
+├── static/
+│   └── uploads/
+├── _site/               # Eleventy build output
+├── .eleventy.js         # Eleventy config
+├── netlify.toml         # Netlify build config
+├── admin/
+│   └── config.yml       # Decap CMS config
+├── package.json
+└── styles/              # User-supplied
+
+
+3. Markdown Format
+
+Home (content/home.md)
+---
+title: My Website Title
+meta_description: This is a home page.
+---
+Welcome to our website.
+
+Blog Post (content/posts/my-post.md)
+---
+title: "Post Title"
+description: "Short post summary for SEO"
+date: 2024-05-25
+palette: light
+hero_ai: null  # Placeholder for future AI image
+---
+Content with **markdown** and {.highlight}.
+
+4. Eleventy Config Highlights (.eleventy.js)
+
+const markdownIt = require("markdown-it");
+const mdAttrs = require("markdown-it-attrs");
+const mdContainer = require("markdown-it-container");
+
+module.exports = function (eleventyConfig) {
+  const md = markdownIt({ breaks: true })
+    .use(mdAttrs)
+    .use(mdContainer, "subparagraph");
+
+  eleventyConfig.setLibrary("md", md);
+
+  eleventyConfig.addTransform("addClasses", (content, outputPath) => {
+    if (outputPath && outputPath.endsWith(".html")) {
+      return content
+        .replace(/<p>/g, '<p class="paragraph">')
+        .replace(/<h1([^>]*)>/, '<h1$1 class="manifesto-title">');
+    }
+    return content;
+  });
+
+  eleventyConfig.addPassthroughCopy({ "static/uploads": "uploads" });
+
+  return {
+    dir: {
+      input: "content",
+      output: "_site"
+    }
+  };
+};
+
+5. Decap CMS Config (admin/config.yml)
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+site_url: "/"
+logo_url: "/logo.svg"
+locale: "en"
+
+collections:
+  - name: "home"
+    label: "Home"
+    files:
+      - file: "content/home.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { name: "title", label: "Website Title" }
+          - { name: "meta_description", label: "Meta Description", widget: "string" }
+          - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title" }
+      - { name: "description", label: "Description" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "palette", label: "Palette", widget: "select", options: ["light", "dark"] }
+      - { name: "hero_ai", label: "AI Image Placeholder", widget: "hidden", default: null }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+6. Netlify Config (netlify.toml)
+[build]
+  publish = "_site"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/kitchen/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[headers]]
+  for = "/kitchen/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+7. Theme Support
+
+Include this snippet in your site’s main layout:
+<html class="theme">
+  <script>
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.add(prefersDark ? 'theme-dark' : 'theme-light');
+  </script>
+</html>
+
+I’ll use my own palette JSON to theme accordingly.
+
+8. Security Note
+
+To limit access to /kitchen/:
+	•	Enable Git Gateway + Identity in Netlify.
+	•	Require login via GitHub.
+	•	Block robots via X-Robots-Tag header (see above).
+	•	Optionally rename admin/ to obfuscate or gate via Netlify Identity.
