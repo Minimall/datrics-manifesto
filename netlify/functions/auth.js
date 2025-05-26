@@ -1,5 +1,3 @@
-const { AuthorizationCode } = require('simple-oauth2');
-
 exports.handler = async (event, context) => {
   const { httpMethod, queryStringParameters } = event;
   
@@ -19,18 +17,6 @@ exports.handler = async (event, context) => {
   }
   
   if (httpMethod === 'GET') {
-    const client = new AuthorizationCode({
-      client: {
-        id: process.env.GITHUB_CLIENT_ID,
-        secret: process.env.GITHUB_CLIENT_SECRET,
-      },
-      auth: {
-        tokenHost: 'https://github.com',
-        tokenPath: '/login/oauth/access_token',
-        authorizePath: '/login/oauth/authorize',
-      },
-    });
-
     const { code } = queryStringParameters;
     
     if (!code) {
@@ -42,14 +28,32 @@ exports.handler = async (event, context) => {
     }
 
     try {
-      const tokenParams = {
-        code,
-        redirect_uri: `https://datrics-cms.netlify.app/.netlify/functions/auth`,
-        scope: 'repo,user'
-      };
+      // Exchange authorization code for access token
+      const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          client_id: process.env.GITHUB_CLIENT_ID,
+          client_secret: process.env.GITHUB_CLIENT_SECRET,
+          code: code,
+        }),
+      });
 
-      const accessToken = await client.getToken(tokenParams);
-      const token = accessToken.token.access_token;
+      const tokenData = await tokenResponse.json();
+      
+      if (tokenData.error) {
+        console.error('GitHub OAuth error:', tokenData);
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({ error: tokenData.error_description || 'OAuth failed' })
+        };
+      }
+
+      const token = tokenData.access_token;
 
       const script = `
         <script>
@@ -79,7 +83,7 @@ exports.handler = async (event, context) => {
       return {
         statusCode: 500,
         headers,
-        body: JSON.stringify({ error: 'Authentication failed' })
+        body: JSON.stringify({ error: 'Authentication failed', details: error.message })
       };
     }
   }
