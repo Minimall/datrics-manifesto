@@ -29,9 +29,3 @@
   [headers.values]
     Access-Control-Allow-Origin = "*"
     
-[[plugins]]
-package = "@netlify/plugin-auth0"
-
-# Optional: restrict which Netlify deploy contexts enable Auth0
-[plugins.inputs]
-  redirect_path = "/.netlify/functions/auth0/callback"
