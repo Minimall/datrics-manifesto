@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Modern Websites with Eleventy</title>
+    
+    
+    <meta name="description" content="Discover how Eleventy makes static site generation simple, fast, and flexible for modern web development">
+    
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Building Modern Websites with Eleventy">
+    
+    <meta property="og:description" content="Discover how Eleventy makes static site generation simple, fast, and flexible for modern web development">
+    
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Building Modern Websites with Eleventy">
+    
+    <meta property="twitter:description" content="Discover how Eleventy makes static site generation simple, fast, and flexible for modern web development">
+    
+    
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- Theme detection script -->
+    <script>
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const palette = 'dark';
+        const themeClass = palette === 'dark' ? 'theme-dark' : (palette === 'light' ? 'theme-light' : (prefersDark ? 'theme-dark' : 'theme-light'));
+        document.documentElement.classList.add(themeClass);
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="/" class="logo">My Website</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts/">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        
+<article class="post">
+    
+    <div class="ai-hero">
+        <!-- AI hero section ready for future implementation -->
+    </div>
+    
+    
+    <header class="post-header">
+        <h1 class="post-title" class="manifesto-title">Building Modern Websites with Eleventy</h1>
+        
+        <time class="post-date" datetime="Sat Jan 20 2024 00:00:00 GMT+0000 (Coordinated Universal Time)">
+            January 20, 2024
+        </time>
+        
+        
+        <p class="post-description">Discover how Eleventy makes static site generation simple, fast, and flexible for modern web development</p>
+        
+    </header>
+    
+    <div class="post-content">
+        <h1>Building Modern Websites with Eleventy</h1>
+<p class="paragraph">Eleventy has become one of the most popular static site generators, and for good reason. It combines <strong>simplicity</strong> with <strong>powerful features</strong> to create an exceptional developer experience.</p>
+<h2>Why Eleventy Stands Out</h2>
+<p class="paragraph">Unlike other static site generators, Eleventy doesn't impose a specific framework or structure. You can use:</p>
+<ul>
+<li><strong>Multiple template languages</strong>: Nunjucks, Liquid, Handlebars, and more</li>
+<li><strong>Zero configuration</strong>: Works out of the box with sensible defaults</li>
+<li><strong>Flexible data</strong>: JSON, YAML, JavaScript modules, and APIs</li>
+<li><strong>Incremental builds</strong>: Only rebuilds what changed</li>
+</ul>
+<div class="subparagraph">
+<p class="paragraph">Eleventy generates pure HTML with no client-side JavaScript by default, resulting in lightning-fast page loads and excellent SEO performance.</p>
+</div>
+<h2>Getting Started</h2>
+<p class="paragraph">Setting up a new Eleventy project is straightforward:</p>
+<pre><code class="language-bash">npm install @11ty/eleventy
+npx @11ty/eleventy --serve
+</code></pre>
+<p class="paragraph">Your site will be running locally in seconds, with hot reloading for instant development feedback.</p>
+<h2>Advanced Features</h2>
+<p class="paragraph">Eleventy shines when you need advanced functionality:</p>
+<ul>
+<li><strong>Collections</strong>: Automatically group related content</li>
+<li><strong>Filters</strong>: Transform data within templates</li>
+<li><strong>Shortcodes</strong>: Create reusable components</li>
+<li><strong>Pagination</strong>: Generate multiple pages from data</li>
+</ul>
+<p class="paragraph">The plugin ecosystem extends Eleventy's capabilities even further, with plugins for image optimization, syntax highlighting, and much more.</p>
+<h2>Perfect for Content Management</h2>
+<p class="paragraph">When paired with headless CMS solutions like Decap CMS, Eleventy becomes a powerful content management platform that's both developer and editor friendly.</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        <nav class="post-nav">
+            <a href="/posts/" class="back-to-posts">← Back to all posts</a>
+        </nav>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="paragraph">&copy; 2024 My Website. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
+    </footer>
+
+    <!-- Netlify Identity Widget -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

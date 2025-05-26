@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Markdown for Web Content</title>
+    
+    
+    <meta name="description" content="Learn advanced markdown techniques and custom extensions for creating rich, engaging web content">
+    
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mastering Markdown for Web Content">
+    
+    <meta property="og:description" content="Learn advanced markdown techniques and custom extensions for creating rich, engaging web content">
+    
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Mastering Markdown for Web Content">
+    
+    <meta property="twitter:description" content="Learn advanced markdown techniques and custom extensions for creating rich, engaging web content">
+    
+    
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- Theme detection script -->
+    <script>
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const palette = 'light';
+        const themeClass = palette === 'dark' ? 'theme-dark' : (palette === 'light' ? 'theme-light' : (prefersDark ? 'theme-dark' : 'theme-light'));
+        document.documentElement.classList.add(themeClass);
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="/" class="logo">My Website</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts/">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        
+<article class="post">
+    
+    <div class="ai-hero">
+        <!-- AI hero section ready for future implementation -->
+    </div>
+    
+    
+    <header class="post-header">
+        <h1 class="post-title" class="manifesto-title">Mastering Markdown for Web Content</h1>
+        
+        <time class="post-date" datetime="Thu Jan 25 2024 00:00:00 GMT+0000 (Coordinated Universal Time)">
+            January 25, 2024
+        </time>
+        
+        
+        <p class="post-description">Learn advanced markdown techniques and custom extensions for creating rich, engaging web content</p>
+        
+    </header>
+    
+    <div class="post-content">
+        <h1>Mastering Markdown for Web Content</h1>
+<p class="paragraph">Markdown has revolutionized how we write for the web. This lightweight markup language lets you focus on <strong>content creation</strong> while automatically handling formatting and structure.</p>
+<h2>Enhanced Markdown Features</h2>
+<p class="paragraph">Our site supports several advanced markdown features that go beyond the basics:</p>
+<h3>Custom Attributes</h3>
+<p class="paragraph">You can add CSS classes and attributes directly to elements:</p>
+<pre><code class="language-markdown">This text has a {.highlight} class applied to it.
+</code></pre>
+<p class="paragraph">This text has a {.highlight} class applied to it.</p>
+<h3>Container Blocks</h3>
+<p class="paragraph">Create special sections with custom styling:</p>
+<div class="subparagraph">
+<p class="paragraph">Container blocks like this one help organize content and draw attention to important information without cluttering your markdown with HTML.</p>
+</div>
+<h2>Typography Excellence</h2>
+<p class="paragraph">Markdown handles all the essentials beautifully:</p>
+<ul>
+<li><strong>Bold text</strong> for emphasis</li>
+<li><em>Italic text</em> for subtle highlighting</li>
+<li><code>Inline code</code> for technical terms</li>
+<li><a href="https://www.markdownguide.org/">Links to resources</a></li>
+</ul>
+<h3>Code Blocks</h3>
+<pre><code class="language-javascript">// Syntax highlighting makes code readable
+function generateStaticSite() {
+    return eleventy.build();
+}
+</code></pre>
+<h2>Lists and Structure</h2>
+<p class="paragraph">Markdown excels at creating well-structured content:</p>
+<ol>
+<li><strong>Ordered lists</strong> for step-by-step instructions</li>
+<li><strong>Unordered lists</strong> for feature highlights</li>
+<li><strong>Nested lists</strong> for hierarchical information</li>
+</ol>
+<h2>Images and Media</h2>
+<p class="paragraph">Adding images is simple and semantic:</p>
+<pre><code class="language-markdown">![Alt text describing the image](/uploads/example.jpg)
+</code></pre>
+<p class="paragraph">The drag-and-drop image support in our CMS makes this even easier - just drop an image and the markdown link is automatically generated.</p>
+<h2>Best Practices</h2>
+<ul>
+<li>Keep paragraphs focused and scannable</li>
+<li>Use headings to create clear content hierarchy</li>
+<li>Leverage markdown's simplicity rather than forcing complex layouts</li>
+<li>Test your content in different contexts and screen sizes</li>
+</ul>
+<p class="paragraph">Markdown's power lies in its simplicity - it gets out of your way so you can focus on creating great content!</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        <nav class="post-nav">
+            <a href="/posts/" class="back-to-posts">← Back to all posts</a>
+        </nav>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="paragraph">&copy; 2024 My Website. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
+    </footer>
+
+    <!-- Netlify Identity Widget -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
