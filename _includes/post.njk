@@ -19,7 +19,7 @@ layout: base.njk
     <header class="post-header">
         <h1 class="post-title">{{ title }}</h1>
         {% if date %}
-        <time class="post-date" datetime="{{ date | date: 'YYYY-MM-DD' }}">
+        <time class="post-date" datetime="{{ date }}">
             {{ date | dateFormat }}
         </time>
         {% endif %}

@@ -1,4 +1,5 @@
 ---
+layout: post.njk
 title: "Getting Started with Static Site Generation"
 description: "Learn how to build fast, secure websites with modern static site generators"
 date: 2024-01-15

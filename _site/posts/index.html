@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    
+    
+    <meta name="description" content="Read our latest blog posts and articles">
+    
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog Posts">
+    
+    <meta property="og:description" content="Read our latest blog posts and articles">
+    
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Blog Posts">
+    
+    <meta property="twitter:description" content="Read our latest blog posts and articles">
+    
+    
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- Theme detection script -->
+    <script>
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const palette = 'light';
+        const themeClass = palette === 'dark' ? 'theme-dark' : (palette === 'light' ? 'theme-light' : (prefersDark ? 'theme-dark' : 'theme-light'));
+        document.documentElement.classList.add(themeClass);
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="/" class="logo">My Website</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts/">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1 class="manifesto-title">Blog Posts</h1>
+<p class="paragraph">Here are all our latest posts:</p>
+<div class="posts-grid">
+  <article class="post-card">
+    <h2><a href="/posts/example-post/">Getting Started with Static Site Generation</a></h2>
+<p class="paragraph"><p class="post-excerpt">Learn how to build fast, secure websites with modern static site generators</p></p>
+<p class="paragraph"><time class="post-date">January 15, 2024</time></p>
+  </article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+        <p class="paragraph">&copy; 2024 My Website. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
+    </footer>
+
+    <!-- Netlify Identity Widget -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

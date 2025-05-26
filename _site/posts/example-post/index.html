@@ -1,4 +1,72 @@
-<h1 class="manifesto-title">Getting Started with Static Site Generation</h1>
+<!DOCTYPE html>
+<html lang="en" class="theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Static Site Generation</title>
+    
+    
+    <meta name="description" content="Learn how to build fast, secure websites with modern static site generators">
+    
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Getting Started with Static Site Generation">
+    
+    <meta property="og:description" content="Learn how to build fast, secure websites with modern static site generators">
+    
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Getting Started with Static Site Generation">
+    
+    <meta property="twitter:description" content="Learn how to build fast, secure websites with modern static site generators">
+    
+    
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- Theme detection script -->
+    <script>
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const palette = 'light';
+        const themeClass = palette === 'dark' ? 'theme-dark' : (palette === 'light' ? 'theme-light' : (prefersDark ? 'theme-dark' : 'theme-light'));
+        document.documentElement.classList.add(themeClass);
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="/" class="logo">My Website</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts/">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        
+<article class="post">
+    
+    <div class="ai-hero">
+        <!-- AI hero section ready for future implementation -->
+    </div>
+    
+    
+    <header class="post-header">
+        <h1 class="post-title" class="manifesto-title">Getting Started with Static Site Generation</h1>
+        
+        <time class="post-date" datetime="Mon Jan 15 2024 00:00:00 GMT+0000 (Coordinated Universal Time)">
+            January 15, 2024
+        </time>
+        
+        
+        <p class="post-description">Learn how to build fast, secure websites with modern static site generators</p>
+        
+    </header>
+    
+    <div class="post-content">
+        <h1>Getting Started with Static Site Generation</h1>
 <p class="paragraph">Static site generators have revolutionized how we build websites. They offer the perfect balance of <strong>performance</strong>, <strong>security</strong>, and <strong>developer experience</strong>.</p>
 <h2>Why Choose Static Sites?</h2>
 <p class="paragraph">Static sites provide numerous advantages:</p>
@@ -17,3 +85,33 @@
 <pre><code class="language-javascript">const eleventy = require('@11ty/eleventy');
 console.log('Hello, static world!');
 </code></pre>
+
+    </div>
+    
+    <footer class="post-footer">
+        <nav class="post-nav">
+            <a href="/posts/" class="back-to-posts">← Back to all posts</a>
+        </nav>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="paragraph">&copy; 2024 My Website. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
+    </footer>
+
+    <!-- Netlify Identity Widget -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
