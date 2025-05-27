@@ -1,86 +1,140 @@
 <!DOCTYPE html>
-<html lang="en" class="theme">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Posts</title>
-    
-    
-    <meta name="description" content="Read our latest blog posts and articles">
-    
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Blog Posts">
-    
-    <meta property="og:description" content="Read our latest blog posts and articles">
-    
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Blog Posts">
-    
-    <meta property="twitter:description" content="Read our latest blog posts and articles">
-    
-    
-    <link rel="stylesheet" href="/styles/main.css">
-    
-    <!-- Theme detection script -->
-    <script>
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const palette = 'light';
-        const themeClass = palette === 'dark' ? 'theme-dark' : (palette === 'light' ? 'theme-light' : (prefersDark ? 'theme-dark' : 'theme-light'));
-        document.documentElement.classList.add(themeClass);
-    </script>
+    <title>Datrics - A Manifesto for Applied Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/styles.css">
+<link rel="stylesheet" href="/styles/grid.css">
+    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.17/dist/motion.js"></script>
 </head>
 <body>
-    <header class="site-header">
-        <nav class="main-nav">
-            <a href="/" class="logo">My Website</a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/posts/">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
+    <main class="container">
+        <!-- Logo Section -->
+        <header class="logo-section">
+            <div class="logo-container">
+                <!-- Light mode logos -->
+                <img src="/assets/datrics-logo.svg" alt="Datrics Logo" class="logo-icon logo-light">
+                <img src="/assets/datrics-wordmark.svg" alt="Datrics" class="logo-wordmark logo-light">
+                <!-- Dark mode logos -->
+                <img src="/assets/datrics-logo-dark.svg" alt="Datrics Logo" class="logo-icon logo-dark">
+                <img src="/assets/datrics-wordmark-dark.svg" alt="Datrics" class="logo-wordmark logo-dark">
+            </div>
+        </header>
 
-    <main class="main-content">
-        <h1 class="manifesto-title">Blog Posts</h1>
-<p class="paragraph">Here are all our latest posts:</p>
-<div class="posts-grid">
-  <article class="post-card">
-    <h2><a href="/posts/markdown-mastery/">Mastering Markdown for Web Content</a></h2>
-<p class="paragraph"><p class="post-excerpt">Learn advanced markdown techniques and custom extensions for creating rich, engaging web content</p></p>
-<p class="paragraph"><time class="post-date">January 25, 2024</time></p>
-  </article>
-  <article class="post-card">
-    <h2><a href="/posts/building-with-eleventy/">Building Modern Websites with Eleventy</a></h2>
-<p class="paragraph"><p class="post-excerpt">Discover how Eleventy makes static site generation simple, fast, and flexible for modern web development</p></p>
-<p class="paragraph"><time class="post-date">January 20, 2024</time></p>
-  </article>
-  <article class="post-card">
-    <h2><a href="/posts/example-post/">Getting Started with Static Site Generation</a></h2>
-<p class="paragraph"><p class="post-excerpt">Learn how to build fast, secure websites with modern static site generators</p></p>
-<p class="paragraph"><time class="post-date">January 15, 2024</time></p>
-  </article>
-</div>
+
+        <!-- Content Section -->
+        <article class="content">
+            <h1 class="manifesto-title" class="manifesto-title">A manifesto for applied intelligence.</h1>
+                                <!-- Animation -->
+        <section class="animation-section">
+            <div class="dots-grid" id="dotsGrid">
+            </div>
+        </section>
+
+            <p class="paragraph">
+                Data's expanse is clear; translating it into decisive action is the engineering challenge we embrace.
+            </p>
+            
+            <p class="paragraph">
+                Future breakthroughs come from focused expertise multiplied by intelligent systems – not headcount.
+            </p>
+
+            <p class="paragraph">
+                Our team: 15 engineers with 100+ velocity – each leads 5-10 agents.
+            </p>
+            
+            <p class="paragraph">
+                Our core: full-stack data processing, AI analytics, conversational engagement – complexity to deployment in weeks.
+            </p>
+            
+            <p class="paragraph">
+                Our commitment: forge tools that make force-multiplication reality.
+            </p>
+  
+
+          
+            <p class="paragraph">
+                Applied intelligence is pivotal where precision, efficiency, and compliance define success:
+            </p>
+            
+            <div class="subparagraph">
+                <p class="paragraph">
+                    <strong>Financial Services:</strong> Mastering risk, compliance, and growth through real-time analysis, rapid credit evaluation, continuous risk assessment, and systematic compliance monitoring. Our AI-driven approach dismantled traditional BI limitations for a leading financial institution, <a href="https://www.datrics.ai/success-stories/revolutionizing-business-intelligence-in-a-leading-financial-institution-through-ai-driven-insights">collapsing query times from days to minutes</a> while unlocking previously unreachable predictive capabilities. <br>Result: secured assets, minimized leakage, compliant operations.
+                </p>
+            </div>
+            
+            <div class="subparagraph">
+                <p class="paragraph">
+                    <strong>Recruitment & HR:</strong> Building high-performing teams efficiently through intelligent matching, scaled analysis, and automated screening that frees expertise for strategy. The Datrics AI Analyst empowered Bear Claw to accelerate talent acquisition, <a href="https://www.datrics.ai/success-stories/faster-hiring-better-matches-datrics-ai-analyst-boosts-bear-claws-recruitment-process">achieving 40% reduction in time-to-hire and automating 80% of manual screening</a>. <br>Outcome: agile recruitment, reduced costs, superior talent acquisition.
+                </p>
+            </div>
+            
+            <div class="subparagraph">
+                <p class="paragraph">
+                    <strong>Insurance Claims:</strong> Speed, accuracy, cost-effectiveness, regulation adherence through deep automation with 'human-in-the-loop' oversight, rigorous validation, and sophisticated claim-to-policy matching. Intelligent automation on complex healthcare claims delivered 70% processing time reduction and 95% accuracy uplift, <a href="https://www.datrics.ai/success-stories/scalable-ai-automation-for-healthcare-claims-coverage-revenue-cycle-operations">fundamentally reshaping efficiency and revenue capture</a>. <br>This yields optimized resources and robust compliance.
+                </p>
+            </div>
+            
+            <p class="paragraph">
+                The Datrics AI toolkit applies secure, advanced AI to process your data, mastering unique terminology and workflows for actionable insights.
+            </p>
+            
+            <p class="paragraph">
+                Our systems operate continuously, learning with each interaction. They connect diverse data sources for holistic business views, providing predictive intelligence to identify trends, forecast outcomes, and flag opportunities.
+            </p>
+            
+            <p class="paragraph">
+                Deployment is versatile—API, cloud, or on-premise for maximum security (encryption, audit trails, RBAC, no third-party sharing) and compliance. <br> Backed by our data scientists and engineers for bespoke development and sustained support.
+            </p>
+            
+            <p class="paragraph">
+                Our tools are core strategy components, empowering teams to master complexity and achieve new velocities. This forges sustained capability and enduring value.
+            </p>
+            
+            <p class="paragraph">
+                Let's amplify your business performance with AI.
+            </p>
+        </article>
+        
+        <!-- Navigation -->
+        <nav class="navigation">
+            <a href="#" class="nav-link primary">Book a call</a>
+            <a href="#" class="nav-link">LinkedIn</a>
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <p class="paragraph">&copy; 2024 My Website. Built with <a href="https://www.11ty.dev/">Eleventy</a>.</p>
-    </footer>
-
-    <!-- Netlify Identity Widget -->
+    <script src="/grid.js"></script>
     <script>
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
+        // Dark mode immediate switching support
+        function updateTheme() {
+            // Force a repaint by temporarily changing a CSS property
+            document.documentElement.style.setProperty('--theme-transition', 'all 0.1s ease');
+            
+            // Remove the transition after a brief moment to avoid interfering with other animations
+            setTimeout(() => {
+                document.documentElement.style.removeProperty('--theme-transition');
+            }, 100);
+        }
+
+        // Listen for changes to the color scheme preference
+        if (window.matchMedia) {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            // Initial call
+            updateTheme();
+            
+            // Listen for changes
+            mediaQuery.addEventListener('change', updateTheme);
+            
+            // Fallback for older browsers
+            if (mediaQuery.addListener) {
+                mediaQuery.addListener(updateTheme);
+            }
         }
     </script>
 </body>
-</html>
+</html> 

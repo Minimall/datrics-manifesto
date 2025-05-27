@@ -46,18 +46,6 @@ module.exports = function(eleventyConfig) {
   // ⚑ register the tweaked instance with Eleventy
   eleventyConfig.setLibrary("md", md);
 
-  return {
-    dir: {
-      input: "content",
-      includes: "_includes",
-      output: "_site"
-    },
-    markdownTemplateEngine: "njk"
-  };
-};
-
-  eleventyConfig.setLibrary("md", md);
-
   // Transform to add CSS classes
   eleventyConfig.addTransform("addClasses", (content, outputPath) => {
     if (outputPath && outputPath.endsWith(".html")) {
