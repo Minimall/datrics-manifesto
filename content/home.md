@@ -4,7 +4,7 @@ meta_description: Deliver automated conversational analytics to your users.
   Full-stack data processing, AI analytics, and chat capabilities that transform
   complex data into intelligent insights—taking you from ideas to production in
   weeks with expert support.
-	permalink: "/"
+permalink: "/"
 ---
 
 
