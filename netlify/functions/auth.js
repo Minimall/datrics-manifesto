@@ -17,13 +17,19 @@ exports.handler = async (event, context) => {
   }
   
   if (httpMethod === 'GET') {
-    const { code } = queryStringParameters;
+    const { code, provider } = queryStringParameters || {};
     
+    // If no code, redirect to GitHub OAuth
     if (!code) {
+      const authUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=https://datrics-cms.netlify.app/.netlify/functions/auth&scope=repo,user`;
+      
       return {
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({ error: 'No authorization code provided' })
+        statusCode: 302,
+        headers: {
+          ...headers,
+          'Location': authUrl
+        },
+        body: ''
       };
     }
 
