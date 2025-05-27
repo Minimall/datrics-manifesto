@@ -1,0 +1,109 @@
+4:45:39 AM: [11ty] Problem writing Eleventy templates:
+4:45:39 AM: [11ty] 1. Having trouble reading front matter from template ./content/home.md (via TemplateContentFrontMatterError)
+4:45:39 AM: [11ty] 2. tab characters must not be used in indentation (7:1)
+4:45:39 AM: [11ty]
+4:45:39 AM: [11ty]  4 |   Full-stack data processing, AI ...
+4:45:39 AM: [11ty]  5 |   complex data into intelligent  ...
+4:45:39 AM: [11ty]  6 |   weeks with expert support.
+4:45:39 AM: [11ty]  7 | →permalink: "/"
+4:45:39 AM: [11ty] -----^ (via YAMLException)
+4:45:39 AM: [11ty]
+4:45:39 AM: [11ty] Original error stack trace: YAMLException: tab characters must not be used in indentation (7:1)
+4:45:39 AM: [11ty]
+4:45:39 AM: [11ty]  4 |   Full-stack data processing, AI ...
+4:45:39 AM: [11ty]  5 |   complex data into intelligent  ...
+4:45:39 AM: [11ty]  6 |   weeks with expert support.
+4:45:39 AM: [11ty]  7 | →permalink: "/"
+4:45:39 AM: [11ty] -----^
+4:45:39 AM: [11ty]     at generateError (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:1273:10)
+4:45:39 AM: [11ty]     at throwError (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:1277:9)
+4:45:39 AM: [11ty]     at readBlockMapping (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2152:7)
+4:45:39 AM: [11ty]     at composeNode (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2531:12)
+4:45:39 AM: [11ty]     at readDocument (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2715:3)
+4:45:39 AM: [11ty]     at loadDocuments (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2778:5)
+4:45:39 AM: [11ty]     at Object.load$1 [as load] (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2804:19)
+4:45:39 AM: [11ty]     at module.exports (/opt/build/repo/node_modules/gray-matter/lib/parse.js:12:17)
+4:45:39 AM: [11ty]     at parseMatter (/opt/build/repo/node_modules/gray-matter/index.js:109:17)
+4:45:39 AM: [11ty]     at matter (/opt/build/repo/node_modules/gray-matter/index.js:50:10)
+4:45:39 AM: [11ty] Copied 8 Wrote 0 files in 0.12 seconds (v3.1.0)
+4:45:39 AM: [11ty] Eleventy Fatal Error (CLI):
+4:45:39 AM: [11ty] 1. Having trouble reading front matter from template ./content/home.md (via TemplateContentFrontMatterError)
+4:45:39 AM: [11ty] 2. tab characters must not be used in indentation (7:1)
+4:45:39 AM: [11ty]
+4:45:39 AM: [11ty]  4 |   Full-stack data processing, AI ...
+4:45:39 AM: [11ty]  5 |   complex data into intelligent  ...
+4:45:39 AM: [11ty]  6 |   weeks with expert support.
+4:45:39 AM: [11ty]  7 | →permalink: "/"
+4:45:39 AM: [11ty] -----^ (via YAMLException)
+4:45:39 AM: [11ty]
+4:45:39 AM: [11ty] Original error stack trace: YAMLException: tab characters must not be used in indentation (7:1)
+4:45:39 AM: [11ty]
+4:45:39 AM: [11ty]  4 |   Full-stack data processing, AI ...
+4:45:39 AM: [11ty]  5 |   complex data into intelligent  ...
+4:45:39 AM: [11ty]  6 |   weeks with expert support.
+4:45:39 AM: [11ty]  7 | →permalink: "/"
+4:45:39 AM: [11ty] -----^
+4:45:39 AM: [11ty]     at generateError (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:1273:10)
+4:45:39 AM: [11ty]     at throwError (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:1277:9)
+4:45:39 AM: [11ty]     at readBlockMapping (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2152:7)
+4:45:39 AM: [11ty]     at composeNode (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2531:12)
+4:45:39 AM: [11ty]     at readDocument (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2715:3)
+4:45:39 AM: [11ty]     at loadDocuments (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2778:5)
+4:45:39 AM: [11ty]     at Object.load$1 [as load] (file:///opt/build/repo/node_modules/js-yaml/dist/js-yaml.mjs:2804:19)
+4:45:39 AM: [11ty]     at module.exports (/opt/build/repo/node_modules/gray-matter/lib/parse.js:12:17)
+4:45:39 AM: [11ty]     at parseMatter (/opt/build/repo/node_modules/gray-matter/index.js:109:17)
+4:45:39 AM: [11ty]     at matter (/opt/build/repo/node_modules/gray-matter/index.js:50:10)
+4:45:39 AM: ​
+4:45:39 AM: "build.command" failed                                        
+4:45:39 AM: ────────────────────────────────────────────────────────────────
+4:45:39 AM: ​
+4:45:39 AM:   Error message
+4:45:39 AM:   Command failed with exit code 1: npx eleventy (https://ntl.fyi/exit-code-1)
+4:45:39 AM: ​
+4:45:39 AM:   Error location
+4:45:39 AM:   In build.command from netlify.toml:
+4:45:39 AM:   npx eleventy
+4:45:39 AM: ​
+4:45:39 AM:   Resolved config
+4:45:39 AM:   build:
+4:45:39 AM:     command: npx eleventy
+4:45:39 AM:     commandOrigin: config
+4:45:39 AM:     environment:
+4:45:39 AM:       - AUTH0_CLIENT_ID
+4:45:39 AM:       - AUTH0_CLIENT_SECRET
+4:45:39 AM:       - AUTH0_DOMAIN
+4:45:39 AM:       - AUTH0_ISSUER_BASE_URL
+4:45:39 AM:       - GITHUB_CLIENT_ID
+4:45:39 AM:       - GITHUB_CLIENT_SECRET
+4:45:39 AM:       - GIT_BRANCH
+4:45:39 AM:       - GIT_COMMITTER_EMAIL
+4:45:39 AM:       - GIT_COMMITTER_NAME
+4:45:39 AM:       - GIT_REPO_NAME
+4:45:39 AM:       - GIT_REPO_OWNER
+4:45:39 AM:       - NODE_VERSION
+4:45:39 AM:     publish: /opt/build/repo/_site
+4:45:39 AM:     publishOrigin: config
+4:45:39 AM:   functionsDirectory: /opt/build/repo/netlify/functions
+4:45:39 AM:   headers:
+4:45:39 AM:     - for: /kitchen/*
+      values:
+        X-Robots-Tag: noindex, nofollow
+    - for: /admin/*
+      values:
+        X-Robots-Tag: noindex, nofollow
+    - for: /.netlify/identity
+      values:
+        Access-Control-Allow-Origin: '*'
+  headersOrigin: config
+  plugins:
+    - inputs: {}
+      origin: ui
+      package: '@netlify/plugin-lighthouse'
+  redirects:
+    - from: /kitchen/*
+      status: 200
+      to: /admin/index.html
+  redirectsOrigin: config
+4:45:39 AM: Build failed due to a user error: Build script returned non-zero exit code: 2
+4:45:39 AM: Failing build: Failed to build site
+4:45:40 AM: Finished processing build request in 24.654s
