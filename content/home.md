@@ -1,6 +1,8 @@
+
 ---
-title: Welcome to My Website
-meta_description: A modern static site built with Eleventy and managed with Decap CMS
+title: "Home – A Manifesto for Applied Intelligence"
+meta_description: "Data’s expanse is clear; its translation into decisive action …"
+permalink: "/"          # ← tells Eleventy to write /index.html
 ---
 # A Manifesto for Applied Intelligence
 
