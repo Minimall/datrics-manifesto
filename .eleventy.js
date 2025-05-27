@@ -2,9 +2,9 @@ const markdownIt = require("markdown-it");
 const mdAttrs = require("markdown-it-attrs");
 const mdContainer = require("markdown-it-container");
 
-module.exports = function (eleventyConfig) {
+module.exports = function(eleventyConfig) {
   // Configure markdown-it with required plugins
-  const md = markdownIt({ 
+  const md = markdownIt({
     breaks: true,
     html: true,
     linkify: true
@@ -14,7 +14,7 @@ module.exports = function (eleventyConfig) {
       validate: function(params) {
         return params.trim().match(/^subparagraph\s+(.*)$/);
       },
-      render: function (tokens, idx) {
+      render: function(tokens, idx) {
         const m = tokens[idx].info.trim().match(/^subparagraph\s+(.*)$/);
         if (tokens[idx].nesting === 1) {
           return '<div class="subparagraph">\n';
@@ -23,6 +23,38 @@ module.exports = function (eleventyConfig) {
         }
       }
     });
+
+  // ── Option B: replace [[animation]] with the HTML snippet ──
+  const animationHTML = `
+<section class="animation-section">
+  <div class="dots-grid" id="dotsGrid"></div>
+</section>`.trim();
+
+  const defaultTextRule =
+    md.renderer.rules.text ||
+    function(tokens, idx, opts, env, self) {
+      return self.renderToken(tokens, idx, opts);
+    };
+
+  md.renderer.rules.text = function(tokens, idx, opts, env, self) {
+    if (tokens[idx].content.trim() === '[[animation]]') {
+      return animationHTML;
+    }
+    return defaultTextRule(tokens, idx, opts, env, self);
+  };
+
+  // ⚑ register the tweaked instance with Eleventy
+  eleventyConfig.setLibrary("md", md);
+
+  return {
+    dir: {
+      input: "content",
+      includes: "_includes",
+      output: "_site"
+    },
+    markdownTemplateEngine: "njk"
+  };
+};
 
   eleventyConfig.setLibrary("md", md);
 

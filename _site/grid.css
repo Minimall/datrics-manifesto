@@ -1,0 +1,119 @@
+/* Grid Animation Styles */
+/* Using color palette from styles.css */
+
+/* Default dot attributes - single source of truth */
+.animation-section {
+    --dot-default-bg: var(--gray-25);
+    --dot-default-opacity: 1;
+    --dot-default-scale: 1;
+    --dot-default-shadow: 0 0 0px rgba(0,0,0,0);
+}
+
+/* Dark mode dot colors */
+@media (prefers-color-scheme: dark) {
+    .animation-section {
+        --dot-default-bg: var(--gray-950);
+    }
+}
+
+.animation-section .dots-grid {
+    display: grid;
+    gap: 24px;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    contain: layout style paint;
+}
+
+.animation-section .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--dot-default-bg);
+    opacity: var(--dot-default-opacity);
+    transform: scale(var(--dot-default-scale));
+    box-shadow: var(--dot-default-shadow);
+    position: relative;
+    will-change: transform, background-color, opacity;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
+
+/* Motion One will handle all animations - no CSS animations needed */
+.animation-section .dot.active.color-blue {
+    /* Motion One will animate these properties */
+}
+
+.animation-section .dot.active.color-red {
+    /* Motion One will animate these properties */
+}
+
+.animation-section .dot.active.color-lime {
+    /* Motion One will animate these properties */
+}
+
+.animation-section .dot.active.color-pink {
+    /* Motion One will animate these properties */
+}
+
+/* All keyframe animations removed - Motion One handles animations now */
+
+/* Responsive Design - Based on container size, not viewport */
+.animation-section .dots-grid {
+    container-type: inline-size;
+}
+
+@container (max-width: 768px) {
+    .animation-section .dot {
+        width: 2px;
+        height: 2px;
+    }
+    
+    .animation-section .dots-grid {
+        gap: 14px;
+    }
+}
+
+@container (max-width: 480px) {
+    .animation-section .dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .animation-section .dots-grid {
+        gap: 12px;
+    }
+}
+
+/* Fallback for browsers that don't support container queries */
+@media (max-width: 768px) {
+    .animation-section .dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .animation-section .dots-grid {
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .animation-section .dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .animation-section .dots-grid {
+        gap: 12px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .animation-section .dot.active {
+        /* Motion One will respect prefers-reduced-motion automatically */
+        background-color: var(--blue-600);
+        opacity: 0.8;
+    }
+} 

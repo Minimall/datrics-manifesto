@@ -21,7 +21,7 @@ locale: "en"
 collections:
   # Home page management
   - name: "home"
-    label: "Home Page"
+    label: "Index Page"
     files:
       - file: "content/home.md"
         label: "Home Page Content"
@@ -29,7 +29,19 @@ collections:
         fields:
           - { name: "title", label: "Website Title", widget: "string" }
           - { name: "meta_description", label: "Meta Description", widget: "string", hint: "Brief description for SEO" }
-          - { name: "body", label: "Content", widget: "markdown" }
+          - { name: "body", label: "Content", widget: "markdown" hint: |
+                ✨ Formatting tips:
+
+                • Write `[[animation]]` (or `{% animation %}`) on its own line to insert the dots grid.  
+                • End a paragraph with `{.highlight}` to highlight it.  
+                • Wrap paragraphs in:
+
+                  ```markdown
+                  ::: subparagraph
+                  …
+                  :::
+                  ```
+            }
 
   # Blog posts management
   - name: "posts"

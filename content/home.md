@@ -1,6 +1,7 @@
 ---
-title: "Welcome to My Website"
-meta_description: "A modern static site built with Eleventy and managed with Decap CMS"
+title: "A manifesto for applied intelligence."
+meta_description: "Data’s expanse is clear; its translation into decisive action and resilient operations is the engineering challenge we embrace."
+permalink: "/"
 ---
 
 # Hello {.manifesto-title}

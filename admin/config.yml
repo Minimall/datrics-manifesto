@@ -21,7 +21,7 @@ locale: "en"
 collections:
   # Home page management
   - name: "home"
-    label: "Home Page"
+    label: "Index Page"
     files:
       - file: "content/home.md"
         label: "Home Page Content"
