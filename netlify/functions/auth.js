@@ -21,7 +21,18 @@ exports.handler = async (event, context) => {
     
     // If no code, redirect to GitHub OAuth
     if (!code) {
-      const authUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=https://datrics-cms.netlify.app/.netlify/functions/auth&scope=repo,user`;
+      const clientId = process.env.GITHUB_CLIENT_ID;
+      
+      // Debug: Check if client ID exists
+      if (!clientId) {
+        return {
+          statusCode: 500,
+          headers,
+          body: JSON.stringify({ error: 'GITHUB_CLIENT_ID not configured' })
+        };
+      }
+      
+      const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=https://datrics-cms.netlify.app/.netlify/functions/auth&scope=repo,user`;
       
       return {
         statusCode: 302,
