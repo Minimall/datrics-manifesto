@@ -1,0 +1,451 @@
+/* CSS Custom Properties - Brand Palette */
+:root {
+  /* Primary Colors */
+  --red-500: #e7360c;
+  --red-600: #c02c0a;
+  --red-1000: #360c02;
+  
+  /* Grays */
+  --white: #ffffff;
+  --gray-50: #eef3f6;
+  --gray-100: #E6E5E7;
+  --gray-300: #a8bbcc;
+  --gray-1000: #09111a;
+  --gray-950: #0f1b28;
+  --gray-900: #152a40;
+  --gray-800: #234465;
+  --gray-600: #4f6984;
+  
+  /* Blue */
+  --blue-600: #3b63ff;
+  --blue-800: #1639c7;
+  
+  /* Accent Colors */
+  --green-500: #256e3c;
+  --yellow-400: #f6c304;
+  --lime-400: #97e617;
+  --lime-500: #82c714;
+  --pink-400: #f026d3;
+  --pink-500: #d10db7;
+  
+  /* Typography */
+  --font-family: 'Geist Mono', monospace;
+  --font-size-base: 18px;
+  --line-height: 1.7;
+  
+  /* Layout */
+  --container-width: 1280px;
+  --container-padding: 64px;
+  --section-gap: 32px;
+
+  /* Theme Colors - Light Mode (Default) */
+  --bg-primary: var(--white);
+  --text-primary: var(--gray-900);
+  --text-secondary: var(--gray-600);
+  --border-primary: var(--gray-50);
+  --border-secondary: var(--gray-300);
+  --surface-primary: var(--gray-50);
+  --surface-secondary: var(--white);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth theme transitions */
+*:not(.dot):not([class*="animation"]):not([class*="grid"]),
+*:not(.dot):not([class*="animation"]):not([class*="grid"])::before,
+*:not(.dot):not([class*="animation"]):not([class*="grid"])::after {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
+/* Logo Section */
+.logo-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 165px;
+  height: 40px;
+  position: relative;
+}
+
+.logo-container .logo-icon,
+.logo-container .logo-wordmark {
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.logo-container .logo-icon {
+  left: 0;
+}
+
+.logo-container .logo-wordmark {
+  left: 48.59px; /* logo-icon width + gap */
+}
+
+.logo-icon {
+  width: 36.59px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.logo-wordmark {
+  width: 116.3px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* Logo theme switching */
+.logo-dark {
+  display: none;
+}
+
+.logo-light {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo-dark {
+    display: block;
+  }
+  
+  .logo-light {
+    display: none;
+  }
+}
+
+/* Animation Section */
+.animation-section {
+  display: flex;
+  justify-content: top-left;
+  align-items: top-left;
+  min-height: 400px;
+  height: 400px;
+  margin: 48px 0;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+/* Content Styles */
+.content {
+  display: flex;
+  flex-direction: column;
+  max-width: 920px;
+  gap: 32px;
+}
+
+.manifesto-title {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.paragraph {
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  
+}
+
+.paragraph.highlight {
+  font-weight: 400;
+}
+
+.paragraph strong {
+  font-weight: 300;
+}
+
+.paragraph em {
+  font-style: italic;
+  color: var(--red-500);
+  font-weight: 700;
+}
+
+
+
+/* Better approach: Use a custom line break class */
+.line-break-16 {
+  display: block;
+  height: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.subparagraph {
+  padding-left: 32px;
+  border-left: 2px solid var(--border-primary);
+}
+
+/* BR spacing - final attempt */
+.subparagraph br {
+  display: block !important;
+  margin-bottom: 24px !important;
+  content: "" !important;
+  height: 0 !important;
+  line-height: 0 !important;
+}
+
+/* Paragraph link hover effects */
+.paragraph a {
+  color: var(--red-500);
+  text-decoration: none;
+  position: relative;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.paragraph a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red-500), var(--red-400));
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.paragraph a::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, var(--red-500)20, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.paragraph a:hover {
+  color: var(--red-600);
+  transform: translateY(-1px);
+}
+
+.paragraph a:hover::before {
+  width: 100%;
+}
+
+.paragraph a:hover::after {
+  width: 120%;
+  height: 120%;
+  opacity: 0.1;
+}
+
+.paragraph a:active {
+  transform: translateY(0);
+  transition: transform 0.1s ease;
+}
+
+/* Enhanced motion for reduced motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  .paragraph a {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .paragraph a:hover {
+    animation: linkPulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes linkPulse {
+  0%, 100% {
+    text-shadow: 0 0 0 transparent;
+  }
+  50% {
+    text-shadow: 0 0 8px var(--red-500)30;
+  }
+}
+
+
+/* Navigation */
+.navigation {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.nav-link.primary {
+  color: var(--red-500);
+  font-weight: 700;
+}
+
+.nav-link.primary:hover {
+  color: var(--red-600);
+  }
+
+.nav-link.secondary {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.nav-link.secondary:hover {
+  color: var(--red-500);
+}
+
+.nav-link:not(.primary):not(.secondary) {
+  color: var(--text-secondary);
+}
+
+.nav-link:not(.primary):not(.secondary):hover {
+  color: var(--text-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 48px;
+    --section-gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 20px;
+    --container-padding: 32px;
+    --section-gap: 32px;
+  }
+
+  .logo-container {
+    width: 140px;
+    height: 34px;
+  }
+
+  .logo-icon {
+    width: 31px;
+    height: 34px;
+  }
+
+  .logo-wordmark {
+    width: 99px;
+    height: 27px;
+  }
+
+  .animation-section {
+    min-height: 300px;
+    height: 300px;
+    margin: 32px 0;
+  }
+
+  .subparagraph {
+    padding-left: 24px;
+  }
+
+  .navigation {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-base: 18px;
+    --container-padding: 24px;
+  }
+
+  .subparagraph {
+    padding-left: 16px;
+    border-left: 1px solid var(--border-primary);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --gray-50: #f0f0f0;
+    --gray-300: #808080;
+    --gray-600: #404040;
+    --gray-900: #000000;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .animation-section {
+    display: none;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Override theme colors for dark mode */
+    --bg-primary: var(--gray-1000);
+    --text-primary: var(--gray-50);
+    --text-secondary: var(--gray-300);
+    --border-primary: var(--gray-800);
+    --border-secondary: var(--gray-600);
+    --surface-primary: var(--gray-900);
+    --surface-secondary: var(--gray-800);
+  }
+} 
