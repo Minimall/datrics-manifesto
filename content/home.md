@@ -4,11 +4,9 @@ meta_description: Deliver automated conversational analytics to your users.
   Full-stack data processing, AI analytics, and chat capabilities that transform
   complex data into intelligent insights—taking you from ideas to production in
   weeks with expert support.
-permalink: "/"
+permalink: /
 ---
-
-
-# Hello
+# A Manifesto for Applied Intelligence 🤷‍♂️
 
 Data's expanse is clear; translating it into decisive action is the engineering challenge we embrace.
 
