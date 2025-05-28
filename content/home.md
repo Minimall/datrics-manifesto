@@ -1,4 +1,5 @@
 ---
+layout: base.njk
 title: Datrics AI ∙ Home
 meta_description: Deliver automated conversational analytics to your users.
   Full-stack data processing, AI analytics, and chat capabilities that transform
